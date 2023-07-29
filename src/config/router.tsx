@@ -2,18 +2,23 @@ import { Suspense } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 // PAGES
-import Home from '@/pages/home'
-import Contact from '@/pages/contact'
+import Login from '@/pages/login/login'
+import Dashboard from '@/pages/dashboard/dashboard'
 import { Spinner } from '@/components/ui'
+import Produtos from '@/pages/produtos/produtos'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: <Login />
   },
   {
-    path: '/contact',
-    element: <Contact />
+    path: '/dashboard',
+    element: <Dashboard />
+  },
+  {
+    path: '/produtos',
+    element: <Produtos />
   }
 ])
 
