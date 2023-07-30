@@ -1,7 +1,17 @@
 import * as S from './style'
 import { Button } from '@/components/ui'
+import { useNavigate } from 'react-router-dom'
 
 function Sidemenu() {
+  const navigate = useNavigate()
+  function handleClick({ page }: { page: number }) {
+    page === 1
+      ? navigate('/predicoes')
+      : page === 2
+      ? navigate('/produtos')
+      : navigate('/dashboard')
+  }
+
   return (
     <S.Body>
       <S.Sidemenu>
@@ -9,13 +19,13 @@ function Sidemenu() {
           <img src=".\src\images\logo.svg" />
         </S.ContainerImg>
         <S.ContainerButtons>
-          <Button>
+          <Button onClick={() => handleClick({ page: 0 })}>
             <img src=".\src\images\pie-two.svg"></img>Dashboard
           </Button>
-          <Button>
+          <Button onClick={() => handleClick({ page: 1 })}>
             <img src=".\src\images\chart-line.svg"></img>Predições
           </Button>
-          <Button>
+          <Button onClick={() => handleClick({ page: 2 })}>
             <img src=".\src\images\facial-cleanser.svg"></img>Produtos
           </Button>
         </S.ContainerButtons>

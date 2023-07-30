@@ -1,7 +1,15 @@
 import Input from '@/components/subcomponents/input'
 import * as S from './styles'
+import Button from '@/components/subcomponents/button'
+import { useState } from 'react'
 
 function Login() {
+  const [isShow, setIsShow] = useState(true)
+
+  const togglePassword = () => {
+    setIsShow(isShow => !isShow)
+  }
+
   return (
     <S.Body>
       <S.Left>
@@ -10,10 +18,32 @@ function Login() {
           <h1>Realize seu Login</h1>
         </S.Header>
         <S.Form>
-          <Input placeholder="Insira uma senha">Senha</Input>
+          <S.ContainerShowPassword>
+            <Button
+              onClick={() => {
+                togglePassword()
+              }}
+            >
+              <img src=".\src\images\showpass.svg"></img>
+            </Button>
+            <S.ContainerPassword>
+              <Input
+                type={isShow ? 'text' : 'password'}
+                placeholder="Insira uma senha"
+              >
+                Senha
+              </Input>
+            </S.ContainerPassword>
+          </S.ContainerShowPassword>
           <Input placeholder="usuario@email.com">E-mail</Input>
         </S.Form>
-        <S.ContainerCheckbox></S.ContainerCheckbox>
+        <S.ContainerCheckbox>
+          <Input type="Checkbox">Lembrar-me</Input>
+          <a href="">Esqueci minha senha</a>
+        </S.ContainerCheckbox>
+        <S.ContainerEntrar>
+          <Button>Entrar</Button>
+        </S.ContainerEntrar>
       </S.Left>
       <S.Right>
         <img src=".\src\images\imgLogin.jpg" />

@@ -29,7 +29,7 @@ export const ContainerButtons = styled.div`
     flex-shrink: 0;
     margin-left: 8px;
     border-radius: 8px;
-    background: #233ba4;
+    background: var(--primria-azul-1, #001c98);
     border: none;
     margin-bottom: 24px;
     color: white;
