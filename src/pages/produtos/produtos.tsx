@@ -3,6 +3,7 @@ import * as S from './styles'
 import Sidemenu from '@/components/ui/sidemenu'
 import Topmenu from '@/components/ui/topmenu'
 import { Button } from '@/components/ui'
+import Search from '@/components/subcomponents/search'
 
 function Produtos() {
   return (
@@ -15,12 +16,7 @@ function Produtos() {
         </S.ContainerHeader>
         <S.ContainerTable>
           <S.ContainerTop>
-            <S.ContainerSearch>
-              <Input> </Input>
-              <Button>
-                <img src=".\src\images\search.svg"></img>
-              </Button>
-            </S.ContainerSearch>
+            <Search></Search>
             <S.ContainerFilter>
               <Button>
                 <img src=".\src\images\filter.svg"></img>

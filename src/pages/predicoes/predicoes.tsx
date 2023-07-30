@@ -1,9 +1,8 @@
 import './others.css'
-import Input from '@/components/subcomponents/input'
 import * as S from './styles'
 import Sidemenu from '@/components/ui/sidemenu'
 import Topmenu from '@/components/ui/topmenu'
-import { Button } from '@/components/ui'
+import Search from '@/components/subcomponents/search'
 import Card from '@/components/ui/cards'
 import { Scrollbars } from 'react-custom-scrollbars-2'
 
@@ -18,10 +17,7 @@ function Predicoes() {
             <h1>Predições</h1>
           </S.ContainerHeader>
           <S.ContainerSearch>
-            <Input placeholder=""> </Input>
-            <Button>
-              <img src=".\src\images\search.svg"></img>
-            </Button>
+            <Search></Search>
           </S.ContainerSearch>
           <S.ContainerCards>
             <Scrollbars

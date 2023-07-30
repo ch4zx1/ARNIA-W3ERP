@@ -2,8 +2,26 @@ import Input from '@/components/subcomponents/input'
 import * as S from './styles'
 import Button from '@/components/subcomponents/button'
 import { useState } from 'react'
+import { TokenType, UserType } from '@/config/types'
+import { loginAPI } from '@/config/api/loginAPI'
+import { useNavigate } from 'react-router-dom'
+import api from '@/config/api'
 
 function Login() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const navigate = useNavigate()
+  async function handleClick() {
+    const user: UserType = {
+      email: email,
+      senha: password
+    }
+    const token: TokenType = await loginAPI(user)
+    localStorage.setItem('TOKEN_AUTH', token.token)
+    api.defaults.headers.common['X-TENANT-ID'] = 'arnia'
+    navigate('/dashboard')
+  }
+
   const [isShow, setIsShow] = useState(true)
 
   const togglePassword = () => {
@@ -30,19 +48,25 @@ function Login() {
               <Input
                 type={isShow ? 'text' : 'password'}
                 placeholder="Insira uma senha"
+                onChange={e => setPassword(e.target.value)}
               >
                 Senha
               </Input>
             </S.ContainerPassword>
           </S.ContainerShowPassword>
-          <Input placeholder="usuario@email.com">E-mail</Input>
+          <Input
+            placeholder="usuario@email.com"
+            onChange={e => setEmail(e.target.value)}
+          >
+            E-mail
+          </Input>
         </S.Form>
         <S.ContainerCheckbox>
           <Input type="Checkbox">Lembrar-me</Input>
           <a href="">Esqueci minha senha</a>
         </S.ContainerCheckbox>
         <S.ContainerEntrar>
-          <Button>Entrar</Button>
+          <Button onClick={handleClick}>Entrar</Button>
         </S.ContainerEntrar>
       </S.Left>
       <S.Right>

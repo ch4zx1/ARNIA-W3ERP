@@ -1,4 +1,5 @@
 import * as S from './style'
+import { getDashboardApi } from '@/config/api/dashboardAPI'
 
 type Prop = {
   title: string
@@ -19,7 +20,9 @@ function Table({ title }: Prop) {
           <h1>{title}</h1>
         </S.ContainerInfo>
         <S.ContainerButtons>
-          <button>Em alta</button>
+          <button onClick={() => console.log(getDashboardApi())}>
+            Em alta
+          </button>
           <button>Em baixa</button>
         </S.ContainerButtons>
       </S.ContainerTop>
