@@ -18,7 +18,7 @@ function Predicoes() {
             <h1>Predições</h1>
           </S.ContainerHeader>
           <S.ContainerSearch>
-            <Input> </Input>
+            <Input placeholder=""> </Input>
             <Button>
               <img src=".\src\images\search.svg"></img>
             </Button>
