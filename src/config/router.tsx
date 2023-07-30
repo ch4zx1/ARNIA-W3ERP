@@ -6,6 +6,7 @@ import Login from '@/pages/login/login'
 import Dashboard from '@/pages/dashboard/dashboard'
 import { Spinner } from '@/components/ui'
 import Produtos from '@/pages/produtos/produtos'
+import Predicoes from '@/pages/predicoes/predicoes'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: '/produtos',
     element: <Produtos />
+  },
+  {
+    path: '/predicoes',
+    element: <Predicoes />
   }
 ])
 

@@ -4,8 +4,6 @@ export const Body = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  display: flex;
-  width: 1646px;
   height: 130px;
   padding: 37px 48px 37px 32px;
   align-items: center;
